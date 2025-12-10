@@ -1,0 +1,7 @@
+ubuntu运行：
+前端：
+sudo nginx -t
+sudo nginx -x reload
+
+后端：
+mysqldump -u root -p --databases quiz > quiz.sql
