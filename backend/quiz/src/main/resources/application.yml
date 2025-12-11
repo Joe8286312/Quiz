@@ -9,3 +9,13 @@ server:
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 新增：基础日志配置（使用 Spring Boot 默认 logback）
+logging:
+  level:
+    root: info        # 修改：默认 info
+    com.joe.quiz: debug  # 新增：本项目包内输出更详细日志（含 Service/Mapper/Controller）
+  file:
+    name: logs/quiz-app.log  # 新增：输出到文件
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n" # 修改：控制台格式
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"     # 修改：文件格式

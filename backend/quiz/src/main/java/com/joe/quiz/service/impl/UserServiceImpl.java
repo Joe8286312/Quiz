@@ -23,72 +23,135 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping("/register")
-    public Result addUser(String username, String password, String checkpassword){
-        //代码逻辑步骤；
-        //1、用户输入的账户和密码不能为空；
-        //2、校验用户的账户、密码是否符合要求：
-        //	- 账户字符不能少于4个；
-        //	- 密码不能小于8位；
-        //  - 密码和确认密码要一致；
-        //	- 账户不能与已有的重复；
-        //	- 账户不能包含特殊字符；
-        //	- 密码和校验密码相同；
-        //3、对密码进行加密；保证后端工作人员不能看到用户密码；
-        //4、向数据库插入数据；
+//    @RequestMapping("/register")
+//    public Result addUser(String username, String password, String checkpassword){
+//        //代码逻辑步骤；
+//        //1、用户输入的账户和密码不能为空；
+//        //2、校验用户的账户、密码是否符合要求：
+//        //	- 账户字符不能少于4个；
+//        //	- 密码不能小于8位；
+//        //  - 密码和确认密码要一致；
+//        //	- 账户不能与已有的重复；
+//        //	- 账户不能包含特殊字符；
+//        //	- 密码和校验密码相同；
+//        //3、对密码进行加密；保证后端工作人员不能看到用户密码；
+//        //4、向数据库插入数据；
+//
+//        //代码逻辑步骤；
+//        //1、用户输入的账户和密码不能为空；
+//        if(StringUtils.isAnyBlank(username, password, checkpassword)){
+//            return Result.error("用户名或密码为空");
+//        }
+//
+//        //2、校验用户的账户、密码是否符合要求：
+//        //   - 密码和确认密码要一致；
+//        if (!password.equals(checkpassword)) {
+//            return Result.error("两次输入的密码不一致");
+//        }
+//        //	- 账户不能包含特殊字符；
+//        String regex = "^[a-zA-Z0-9]+$";
+//        Pattern pattern = Pattern.compile(regex);
+//        Matcher matcher = pattern.matcher(username);
+//        if (!matcher.matches()) {
+//            return Result.error("用户名包含特殊字符");
+//        }
+//        //	- 账户不能与已有的重复；
+//        //查询数据库，确定是否已经存在用户名;
+//        //to add...
+//        int userExist =  userMapper.existsByName(username);
+//        if(userExist > 0){
+//            return Result.error("用户名已存在");
+//        }
+//
+//
+//        //3、对密码进行加密；保证后端工作人员不能看到用户密码；密码不要用明文；
+//        //对密码进行加密;
+//        final String SALT = "com.quiz";
+//        String encrptedPassword = DigestUtils.md5DigestAsHex((SALT + password).getBytes());
+//
+//        User user = new User();
+//        user.setUserName(username);
+//        user.setUserPassword(encrptedPassword);
+//        /**
+//         * 注册默认是普通用户，所以userRole设置为0；
+//         */
+//        user.setUserRole(0);
+//        user.setIsDelete(0);
+//
+//        Date now = new Date();
+//        user.setCreateTime(now);
+//        user.setUpdateTime(now);
+//
+//        //4、向数据库插入数据；
+//        int result = userMapper.saveUser(user);
+//
+//        if (result > 0)
+//            return Result.success("新增用户成功");
+//        else
+//            return Result.error("注册用户失败");
+//    }
 
-        //代码逻辑步骤；
-        //1、用户输入的账户和密码不能为空；
-        if(StringUtils.isAnyBlank(username, password, checkpassword)){
+    /**
+     * 新增用户（注册或管理端新增）
+     * @param userRole register 时强制传入 0；管理端可传 0/1
+     */
+    @Override
+    public Result addUser(String username, String password, String checkpassword, Integer userRole) {
+        // 1. 参数判空
+        if (StringUtils.isAnyBlank(username, password, checkpassword)) {
             return Result.error("用户名或密码为空");
         }
 
-        //2、校验用户的账户、密码是否符合要求：
-        //   - 密码和确认密码要一致；
+        // 2. 角色校验
+        // register 场景会传入 0；管理端需要明确传 0/1
+        if (userRole == null) {
+            return Result.error("userRole 不能为空");
+        }
+        if (userRole != 0 && userRole != 1) {
+            return Result.error("userRole 只能是 0（普通用户）或 1（管理员）");
+        }
+
+        // 3. 密码一致性
         if (!password.equals(checkpassword)) {
             return Result.error("两次输入的密码不一致");
         }
-        //	- 账户不能包含特殊字符；
+
+        // 4. 用户名格式校验（仅字母数字）
         String regex = "^[a-zA-Z0-9]+$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(username);
         if (!matcher.matches()) {
             return Result.error("用户名包含特殊字符");
         }
-        //	- 账户不能与已有的重复；
-        //查询数据库，确定是否已经存在用户名;
-        //to add...
-        int userExist =  userMapper.existsByName(username);
-        if(userExist > 0){
+
+        // 5. 重名校验
+        int userExist = userMapper.existsByName(username);
+        if (userExist > 0) {
             return Result.error("用户名已存在");
         }
 
-
-        //3、对密码进行加密；保证后端工作人员不能看到用户密码；密码不要用明文；
-        //对密码进行加密;
+        // 6. 密码加密
         final String SALT = "com.quiz";
-        String encrptedPassword = DigestUtils.md5DigestAsHex((SALT + password).getBytes());
+        String encryptedPassword = DigestUtils.md5DigestAsHex((SALT + password).getBytes());
 
+        // 7. 组装对象
         User user = new User();
         user.setUserName(username);
-        user.setUserPassword(encrptedPassword);
-        /**
-         * 注册默认是普通用户，所以userRole设置为0；
-         */
-        user.setUserRole(0);
+        user.setUserPassword(encryptedPassword);
+        user.setUserRole(userRole); // 按调用场景决定 0/1
         user.setIsDelete(0);
 
         Date now = new Date();
         user.setCreateTime(now);
         user.setUpdateTime(now);
 
-        //4、向数据库插入数据；
+        // 8. 入库
         int result = userMapper.saveUser(user);
-
-        if (result > 0)
+        if (result > 0) {
             return Result.success("新增用户成功");
-        else
+        } else {
             return Result.error("注册用户失败");
+        }
     }
 
     public boolean deleteUserById(Long id) {

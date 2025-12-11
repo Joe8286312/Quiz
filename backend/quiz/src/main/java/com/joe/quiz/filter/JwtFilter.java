@@ -30,16 +30,29 @@ public class JwtFilter implements Filter {
             return;
         }
 
+
         //1、获取请求url;
         String url = request.getRequestURL().toString();
-        //2、判断url中是否包含login,如果包含，则说明是登录操作，放行；
-        if (url.contains("login")) {
+        //2、判断url中是否包含login或register,如果包含，则说明是登录或注册操作，放行；
+        if (url.contains("login") || url.contains("register")) {
+            System.out.println("登录或注册请求，放行...");
             chain.doFilter(request, response);
             return;
         }
 
         //3、获取请求头中的令牌(token)
         String token = request.getHeader("token");
+
+//        //1、获取请求url;
+//        String url = request.getRequestURL().toString();
+//        //2、判断url中是否包含login,如果包含，则说明是登录操作，放行；
+//        if (url.contains("login")) {
+//            chain.doFilter(request, response);
+//            return;
+//        }
+//
+//        //3、获取请求头中的令牌(token)
+//        String token = request.getHeader("token");
         System.out.println("从请求头获取的token: " + (StringUtils.hasLength(token) ? token.substring(0, Math.min(token.length(), 20)) + "..." : "null"));
 
         //4、判断令牌是否存在，如果不存在，返回未登录信息。

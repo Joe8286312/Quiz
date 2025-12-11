@@ -50,6 +50,7 @@ Vue.config.productionTip = false
 
 // 设置 Axios 的全局 baseURL
 axios.defaults.baseURL = 'http://localhost:8080';
+// axios.defaults.baseURL = '/api';
 axios.defaults.withCredentials = true;
 
 new Vue({

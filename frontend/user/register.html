@@ -1,205 +1,175 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz 用户注册</title>
+  <title>Register</title>
   <style>
-    :root {
-      --primary: #42a5f5;
-      --primary-dark: #1e88e5;
-      --bg: #f7f8fb;
-      --card: #ffffff;
-      --text: #1f2d3d;
-      --muted: #90a4ae;
-      --success: #43a047;
-      --error: #e53935;
-    }
-    * { box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: "Inter", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-      background: radial-gradient(circle at 20% 20%, #bbdefb 0, transparent 30%),
-                  radial-gradient(circle at 80% 0%, #b3e5fc 0, transparent 25%),
-                  radial-gradient(circle at 50% 90%, #c8e6c9 0, transparent 35%),
-                  var(--bg);
-      min-height: 100vh;
+      background: #f5efe6;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      min-height: 100vh;
+      padding: 1rem;
+      font-family: sans-serif;
     }
-    .card {
-      width: 380px;
-      background: var(--card);
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      padding: 32px 28px;
+    .container {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+      padding: 2rem;
       position: relative;
-      overflow: hidden;
     }
-    .card::before, .card::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(30px);
-      opacity: 0.18;
-    }
-    .card::before {
-      width: 160px; height: 160px;
-      background: #bbdefb;
-      top: -60px; right: -40px;
-    }
-    .card::after {
-      width: 140px; height: 140px;
-      background: #c8e6c9;
-      bottom: -50px; left: -30px;
-    }
-    h2 {
-      margin: 0 0 8px;
-      color: var(--text);
-      font-size: 24px;
+    h1 {
+      color: #e86a33;
+      margin-bottom: 1.5rem;
       text-align: center;
-      letter-spacing: 0.5px;
     }
-    p.sub {
-      margin: 0 0 24px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 14px;
-    }
+    .field { margin-bottom: 1rem; }
     label {
       display: block;
-      margin-bottom: 6px;
-      color: var(--text);
+      margin-bottom: 0.4rem;
+      color: #555;
       font-weight: 600;
-      font-size: 14px;
     }
     input {
       width: 100%;
       padding: 12px 14px;
       border-radius: 10px;
-      border: 1px solid #e0e6ed;
-      font-size: 14px;
-      outline: none;
-      transition: all 0.2s ease;
-      background: #fbfcfe;
+      border: 2px solid #eabdc8;
+      background: #f8f0e5;
+      color: #333;
+      font-size: 1rem;
+      transition: border-color 0.2s, background 0.2s;
     }
     input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.18);
-      background: #fff;
+      outline: none;
+      border-color: #d45b28;
+      background: #fff7f0;
     }
-    .btn {
+    .error {
+      color: #dc3545;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      min-height: 1.1rem;
+    }
+    button {
       width: 100%;
-      padding: 12px;
+      background-color: #e86a33;
+      color: white;
       border: none;
+      padding: 14px;
       border-radius: 10px;
-      background: linear-gradient(120deg, var(--primary), var(--primary-dark));
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 1.05rem;
       cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.2s ease;
-      margin-top: 6px;
+      transition: background-color 0.3s;
+      margin-top: 0.5rem;
     }
-    .btn:active {
-      transform: translateY(1px);
-      box-shadow: 0 6px 18px rgba(66, 165, 245, 0.35);
-    }
-    .msg {
-      min-height: 20px;
-      margin: 6px 0 10px;
-      font-size: 13px;
-      color: var(--error);
-    }
-    .bottom {
-      margin-top: 18px;
+    button:hover { background-color: #d45b28; }
+    .helper {
+      margin-top: 1rem;
       text-align: center;
-      color: var(--muted);
-      font-size: 13px;
+      color: #666;
+      font-size: 0.95rem;
+      min-height: 1.2rem;
     }
-    .link {
-      color: var(--primary);
+    .login-link {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      font-size: 0.95rem;
+      color: #e86a33;
       text-decoration: none;
       font-weight: 600;
-      margin-left: 6px;
     }
-    .link:hover { text-decoration: underline; }
+    .login-link:hover { color: #d45b28; text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h2>创建账号</h2>
-    <p class="sub">注册后即可开始 Quiz 挑战</p>
-    <div class="msg" id="msg"></div>
+  <div class="container">
+    <h1>创建用户</h1>
 
-    <label for="username">用户名</label>
-    <input id="username" type="text" placeholder="字母或数字，3-20 位" autocomplete="username" />
+    <form id="register-form" novalidate>
+      <div class="field">
+        <label for="username">用户名</label>
+        <input id="username" name="username" type="text" placeholder="请输入用户名" required />
+        <div class="error" id="username-error"></div>
+      </div>
 
-    <label for="password">密码</label>
-    <input id="password" type="password" placeholder="请输入密码（≥6位）" autocomplete="new-password" />
+      <div class="field">
+        <label for="password">密码</label>
+        <input id="password" name="password" type="password" placeholder="请输入密码" required minlength="6" />
+        <div class="error" id="password-error"></div>
+      </div>
 
-    <label for="checkpassword">确认密码</label>
-    <input id="checkpassword" type="password" placeholder="请再次输入密码" autocomplete="new-password" />
+      <div class="field">
+        <label for="confirm">确认密码</label>
+        <input id="confirm" name="confirm" type="password" placeholder="请确认密码" required minlength="6" />
+        <div class="error" id="confirm-error"></div>
+      </div>
 
-    <button class="btn" id="register-btn">注册</button>
+      <button type="submit">注册</button>
+      <div class="helper" id="status"></div>
+    </form>
 
-    <div class="bottom">
-      已有账号？
-      <a class="link" href="login.html">去登录</a>
-    </div>
+    <!-- Bottom-right login link -->
+    <a class="login-link" href="login.html">回到登录</a>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    const API_BASE = 'http://localhost:8080';
-    axios.defaults.baseURL = API_BASE;
-    axios.defaults.withCredentials = true;
+    const form = document.getElementById("register-form");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirm");
+    const usernameError = document.getElementById("username-error");
+    const passwordError = document.getElementById("password-error");
+    const confirmError = document.getElementById("confirm-error");
+    const statusEl = document.getElementById("status");
 
-    const msgEl = document.getElementById('msg');
-    const btn = document.getElementById('register-btn');
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      usernameError.textContent = "";
+      passwordError.textContent = "";
+      confirmError.textContent = "";
+      statusEl.textContent = "";
+      statusEl.style.color = "#666";
 
-    btn.addEventListener('click', async () => {
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const checkpassword = document.getElementById('checkpassword').value.trim();
-      msgEl.style.color = 'var(--error)';
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+      const confirm = confirmInput.value.trim();
+      let valid = true;
 
-      if (!username || !password || !checkpassword) {
-        msgEl.textContent = '请输入完整信息';
-        return;
-      }
-      if (!/^[a-zA-Z0-9]{3,20}$/.test(username)) {
-        msgEl.textContent = '用户名需为 3-20 位字母或数字';
-        return;
-      }
-      if (password.length < 6) {
-        msgEl.textContent = '密码长度不能少于 6 位';
-        return;
-      }
-      if (password !== checkpassword) {
-        msgEl.textContent = '两次密码不一致';
-        return;
-      }
+      if (!username) { usernameError.textContent = "用户名不能为空。"; valid = false; }
+      if (!password) { passwordError.textContent = "密码不能为空。"; valid = false; }
+      else if (password.length < 6) { passwordError.textContent = "密码长度不能少于6位。"; valid = false; }
+      if (!confirm) { confirmError.textContent = "请确认您的密码。"; valid = false; }
+      else if (confirm !== password) { confirmError.textContent = "两次输入的密码不一致。"; valid = false; }
 
-      msgEl.textContent = '正在注册...';
+      if (!valid) return;
 
       try {
-        // 用户端专用注册接口：/registerUser
-        const res = await axios.post('/registerUser', { username, password, checkpassword }, {
-          headers: { 'Content-Type': 'application/json' }
+        const resp = await fetch("http://localhost:8080/register", {
+        // const resp = await fetch("http://localhost/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password, checkpassword: confirm })
         });
-        const data = res.data;
-        if (data.code === 1) {
-          msgEl.style.color = 'var(--success)';
-          msgEl.textContent = data.msg || '注册成功，正在跳转...';
-          setTimeout(() => { window.location.href = 'login.html'; }, 700);
+        const data = await resp.json();
+        if (resp.ok && data.code === 1) {
+          statusEl.style.color = "#28a745";
+          statusEl.textContent = "注册成功！请前往登录。";
         } else {
-          msgEl.textContent = data.msg || '注册失败';
+          statusEl.style.color = "#dc3545";
+          statusEl.textContent = data.msg || "注册失败";
         }
       } catch (err) {
-        msgEl.textContent = err?.response?.data?.msg || '注册异常，请稍后再试';
+        statusEl.style.color = "#dc3545";
+        statusEl.textContent = "网络错误，请稍后再试。";
+        console.error(err);
       }
     });
   </script>

@@ -10,8 +10,18 @@ import java.util.List;
 
 @Service
 public interface UserService {
-    //保存新用户；
-    public Result addUser(String username, String password, String checkpassword);
+//    //保存新用户；
+//    public Result addUser(String username, String password, String checkpassword);
+
+    /**
+     * 新增用户
+     * @param username 用户名
+     * @param password 密码
+     * @param checkpassword 确认密码
+     * @param userRole 角色（0-普通用户，1-管理员）；register 时强制 0
+     */
+    Result addUser(String username, String password, String checkpassword, Integer userRole);
+
 
     public boolean deleteUserById(Long id);
     public boolean deleteUserByName(String username);

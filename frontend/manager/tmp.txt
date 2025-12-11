@@ -1,7 +1,111 @@
-ubuntu运行：
-前端：
-sudo nginx -t
-sudo nginx -x reload
+joe@joe-ubuntu:~$ sudo cat /etc/nginx/sites-available/default 
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
-后端：
-mysqldump -u root -p --databases quiz > quiz.sql
+    server_name localhost;
+
+    # 整个前端（管理端 + 用户端）都在 /var/www/dist
+    root /var/www/dist;
+    index index.html index.htm;
+
+    # ===================== 静态资源 =====================
+
+    # 管理端：Vue SPA，访问 http://localhost/ 或 http://localhost/#/login
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 用户端：访问 http://localhost/user/register.html /login.html /quiz.html
+    location /user/ {
+        alias /var/www/dist/user/;
+        try_files $uri $uri/ =404;
+    }
+
+    # ===================== 后端接口 反向代理 =====================
+
+    # 用户端 JS 里写的是 http://localhost/login
+    location /login {
+        proxy_pass http://127.0.0.1:8080/login;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # 如需 CORS（用户端通过 http://localhost 访问时其实同源，不一定需要，但加上也无害）
+        add_header Access-Control-Allow-Origin $http_origin always;
+        add_header Access-Control-Allow-Credentials true always;
+        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS' always;
+        add_header Access-Control-Allow-Headers $http_access_control_request_headers always;
+
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+    }
+
+    location /register {
+        proxy_pass http://127.0.0.1:8080/register;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        add_header Access-Control-Allow-Origin $http_origin always;
+        add_header Access-Control-Allow-Credentials true always;
+        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS' always;
+        add_header Access-Control-Allow-Headers $http_access_control_request_headers always;
+
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+    }
+
+    location /getQuestion {
+        proxy_pass http://127.0.0.1:8080/getQuestion;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        add_header Access-Control-Allow-Origin $http_origin always;
+        add_header Access-Control-Allow-Credentials true always;
+        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS' always;
+        add_header Access-Control-Allow-Headers $http_access_control_request_headers always;
+
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+    }
+
+    # 如果管理端打包代码里用了 /admin/login 之类的接口，可以按需再加：
+    # location /admin/login {
+    #     proxy_pass http://127.0.0.1:8081/admin/login;
+    #     ... 同样的 header 与 OPTIONS ...
+    # }
+
+    # /etc/nginx/sites-available/default 里增加：
+    location /api/ {
+    	proxy_pass http://127.0.0.1:8080/;  # 末尾 / 保持路径对齐：/api/x -> /x
+
+	proxy_set_header Host $host;
+	proxy_set_header X-Real-IP $remote_addr;
+    	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    	proxy_set_header X-Forwarded-Proto $scheme;
+
+    	# CORS（即便将来跨域，也能用）
+    	add_header Access-Control-Allow-Origin $http_origin always;
+    	add_header Access-Control-Allow-Credentials true always;
+    	add_header Access-Control-Allow-Methods 'GET, POST, PUT, DELETE, OPTIONS' always;
+    	add_header Access-Control-Allow-Headers $http_access_control_request_headers always;
+
+    	if ($request_method = OPTIONS) {
+        	return 204;
+    	}
+    }
+
+
+
+}

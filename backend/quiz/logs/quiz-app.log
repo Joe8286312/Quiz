@@ -1,0 +1,156 @@
+2025-12-11 10:40:13.109 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 20696 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 10:40:13.115 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 10:40:13.117 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 10:40:13.170 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-11 10:40:13.171 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-11 10:40:14.418 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 10:40:14.434 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 10:40:14.438 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 10:40:14.487 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 10:40:14.490 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1317 ms
+2025-12-11 10:40:15.341 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 10:40:15.381 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 10:40:15.390 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 2.849 seconds (process running for 3.601)
+2025-12-11 10:41:07.933 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-11 10:41:07.934 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-11 10:41:07.936 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-12-11 10:41:30.686 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 10:41:30.919 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 10:41:35.264 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 7148 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 10:41:35.266 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 10:41:35.267 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 10:41:35.314 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-11 10:41:35.315 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-11 10:41:36.594 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 10:41:36.613 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 10:41:36.614 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 10:41:36.670 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 10:41:36.670 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1355 ms
+2025-12-11 10:41:37.375 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 10:41:37.436 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 10:41:37.452 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 2.654 seconds (process running for 3.241)
+2025-12-11 10:41:40.639 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-11 10:41:40.639 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-11 10:41:40.639 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-12-11 10:42:19.928 INFO  [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-11 10:42:20.932 INFO  [http-nio-8080-exec-5] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e55df5f
+2025-12-11 10:42:20.938 INFO  [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-11 10:42:43.469 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-11 10:42:43.472 INFO  [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 10:42:43.681 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 10:42:43.686 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-11 10:42:43.704 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-11 10:42:43.755 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 7148 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 10:42:43.756 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 10:42:43.756 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 10:42:43.964 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 10:42:43.965 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 10:42:43.967 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 10:42:43.984 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 10:42:43.984 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 227 ms
+2025-12-11 10:42:44.090 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 10:42:44.098 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 10:42:44.102 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 0.365 seconds (process running for 69.891)
+2025-12-11 10:42:44.104 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-11 10:42:45.517 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-12-11 10:42:45.519 INFO  [Thread-7] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 10:42:45.726 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 10:42:45.795 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 7148 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 10:42:45.796 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 10:42:45.796 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 10:42:45.996 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 10:42:45.996 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 10:42:45.996 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 10:42:46.013 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 10:42:46.013 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 216 ms
+2025-12-11 10:42:46.110 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 10:42:46.120 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 10:42:46.124 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 0.348 seconds (process running for 71.912)
+2025-12-11 10:42:46.125 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-11 10:42:58.687 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 10:42:58.934 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 10:43:01.306 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 24980 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 10:43:01.308 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 10:43:01.308 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 10:43:01.362 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-11 10:43:01.363 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-11 10:43:02.615 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 10:43:02.627 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 10:43:02.627 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 10:43:02.687 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 10:43:02.688 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1324 ms
+2025-12-11 10:43:03.305 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 10:43:03.346 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 10:43:03.356 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 2.523 seconds (process running for 3.131)
+2025-12-11 10:43:11.590 INFO  [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-11 10:43:11.591 INFO  [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-11 10:43:11.592 INFO  [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-12-11 10:43:11.717 INFO  [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-11 10:43:12.024 INFO  [http-nio-8080-exec-3] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56e79ee1
+2025-12-11 10:43:12.029 INFO  [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-11 10:44:47.874 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 10:44:48.474 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 10:44:48.493 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-11 10:44:48.521 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-11 13:58:03.655 INFO  [main] com.joe.quiz.QuizApplicationTests - Starting QuizApplicationTests using Java 17.0.17 with PID 26176 (started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 13:58:03.658 DEBUG [main] com.joe.quiz.QuizApplicationTests - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 13:58:03.659 INFO  [main] com.joe.quiz.QuizApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 13:58:05.584 INFO  [main] com.joe.quiz.QuizApplicationTests - Started QuizApplicationTests in 2.231 seconds (process running for 3.099)
+2025-12-11 13:58:06.180 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-11 13:58:06.523 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74b7497b
+2025-12-11 13:58:06.524 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-11 13:58:06.877 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-11 13:58:06.889 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-11 19:50:59.539 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 17304 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 19:50:59.540 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 19:50:59.541 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 19:50:59.569 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-11 19:50:59.569 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-11 19:51:00.196 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 19:51:00.205 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 19:51:00.205 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 19:51:00.231 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 19:51:00.231 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 662 ms
+2025-12-11 19:51:00.608 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 19:51:00.627 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 19:51:00.632 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 1.474 seconds (process running for 1.885)
+2025-12-11 19:51:06.091 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 28 class path changes (0 additions, 27 deletions, 1 modification)
+2025-12-11 19:51:06.093 INFO  [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 19:51:06.225 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 19:51:06.258 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 17304 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 19:51:06.259 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 19:51:06.259 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 19:51:06.382 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 19:51:06.382 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 19:51:06.382 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 19:51:06.392 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 19:51:06.392 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 133 ms
+2025-12-11 19:51:06.452 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 19:51:06.457 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 19:51:06.460 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 0.215 seconds (process running for 7.712)
+2025-12-11 19:51:06.461 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-11 19:51:07.872 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 27 class path changes (27 additions, 0 deletions, 0 modifications)
+2025-12-11 19:51:07.873 INFO  [Thread-7] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 19:51:07.995 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 19:51:08.030 INFO  [restartedMain] com.joe.quiz.QuizApplication - Starting QuizApplication using Java 17.0.17 with PID 17304 (D:\Codes\Quiz\backend\quiz\target\classes started by Administrator in D:\Codes\Quiz\backend\quiz)
+2025-12-11 19:51:08.030 DEBUG [restartedMain] com.joe.quiz.QuizApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-11 19:51:08.030 INFO  [restartedMain] com.joe.quiz.QuizApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-11 19:51:08.134 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-11 19:51:08.134 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-11 19:51:08.134 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-11 19:51:08.143 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-11 19:51:08.143 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 112 ms
+2025-12-11 19:51:08.202 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-11 19:51:08.207 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-11 19:51:08.209 INFO  [restartedMain] com.joe.quiz.QuizApplication - Started QuizApplication in 0.19 seconds (process running for 9.462)
+2025-12-11 19:51:08.210 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-11 19:51:45.709 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-11 19:51:45.710 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-11 19:51:45.711 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-12-11 19:51:45.795 INFO  [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-11 19:51:46.070 INFO  [http-nio-8080-exec-4] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@52655f5f
+2025-12-11 19:51:46.071 INFO  [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-11 19:52:37.665 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-11 19:52:37.785 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-11 19:52:37.786 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-11 19:52:37.792 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

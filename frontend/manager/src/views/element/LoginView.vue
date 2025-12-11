@@ -48,7 +48,7 @@ export default {
     },
 
     login() {
-      axios.post('/login', {
+      axios.post('/admin/login', {
         username: this.form.username,
         password: this.form.password
       }, {

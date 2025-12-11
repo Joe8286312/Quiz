@@ -455,41 +455,64 @@ export default {
         }
         
         this.adding = true;
-        // 🔴 修改：使用form-data格式发送数据
-        const formData = new FormData();
-        formData.append('username', this.form.username);
-        formData.append('password', this.form.password);
-        formData.append('checkpassword', this.form.checkpassword);
+        // // 🔴 修改：使用form-data格式发送数据
+        // const formData = new FormData();
+        // formData.append('username', this.form.username);
+        // formData.append('password', this.form.password);
+        // formData.append('checkpassword', this.form.checkpassword);
         
-        axios
-          .post('/register', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          })
-          .then((response) => {
-            if (response.data.code === 200) {
-              this.$message({
-                message: response.data.msg || "添加用户成功",
-                type: "success",
-                duration: 2000
-              });
+        // axios
+        //   .post('/register', formData, {
+        //     headers: {
+        //       'Content-Type': 'multipart/form-data'
+        //     }
+        //   })
+        //   .then((response) => {
+        //     if (response.data.code === 200) {
+        //       this.$message({
+        //         message: response.data.msg || "添加用户成功",
+        //         type: "success",
+        //         duration: 2000
+        //       });
               
-              this.dialogFormVisible = false;
-              this.searchMode = false;
-              this.currentKeyword = '';
-              this.currentPage = 1;
-              this.loadData();
-            } else {
-              this.$message.error(response.data.msg || "添加用户失败");
-            }
-            this.adding = false;
-          })
-          .catch((error) => {
-            console.error("Error adding user:", error);
-            this.$message.error("添加用户失败，请稍后重试");
-            this.adding = false;
-          });
+        //       this.dialogFormVisible = false;
+        //       this.searchMode = false;
+        //       this.currentKeyword = '';
+        //       this.currentPage = 1;
+        //       this.loadData();
+        //     } else {
+        //       this.$message.error(response.data.msg || "添加用户失败");
+        //     }
+        //     this.adding = false;
+        //   })
+        //   .catch((error) => {
+        //     console.error("Error adding user:", error);
+        //     this.$message.error("添加用户失败，请稍后重试");
+        //     this.adding = false;
+        //   });
+        // 修改：改为调用 /adduser，JSON 传递 userRole
+        axios.post('/adduser', {
+          username: this.form.username,
+          password: this.form.password,
+          checkpassword: this.form.checkpassword,
+          userRole: this.form.userRole
+        }).then((response) => {
+          if (response.data.code === 1) { // 修改：成功码 1
+            this.$message({ message: response.data.msg || "添加用户成功", type: "success", duration: 2000 });
+            this.dialogFormVisible = false;
+            this.searchMode = false;
+            this.currentKeyword = '';
+            this.currentPage = 1;
+            this.loadData();
+          } else {
+            this.$message.error(response.data.msg || "添加用户失败");
+          }
+          this.adding = false;
+        }).catch((error) => {
+          console.error("Error adding user:", error);
+          this.$message.error("添加用户失败，请稍后重试");
+          this.adding = false;
+        });
       });
     },
     

@@ -3,61 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz</title>
+  <title>Quiz Time</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      background:#f5efe6;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:100vh;
-      padding:1rem;
-      font-family:sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .container{
-      background-color:white;
-      border-radius:1rem;
-      box-shadow:0 10px 30px rgba(0,0,0,0.1);
-      width:100%;
-      max-width:600px;
-      overflow:hidden;
-      position:relative;
+
+    body {
+      background: #f5efe6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+      font-family: sans-serif;
     }
-    .screen{display:none;padding:2rem;text-align:center;}
-    .screen.active{display:block;}
-    #start-screen h1{color:#e86a33;margin-bottom:20px;font-size:2.5rem;}
-    #start-screen p{color:#666;margin-bottom:30px;font-size:1.1rem;}
-    button{
-      background-color:#e86a33;color:white;border:none;
-      padding:15px 30px;border-radius:10px;font-size:1.1rem;
-      cursor:pointer;transition:background-color 0.3s;
+
+    .container {
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      overflow: hidden;
+      position: relative;
     }
-    button:hover{background-color:#d45b28;}
-    .quiz-header{margin-bottom:1rem;}
-    #question-text{color:#333;font-size:1.5rem;margin-bottom:1rem;}
-    .quiz-info{display:flex;justify-content:space-between;color:#666;margin-bottom:10px;}
-    .answers-container{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
-    .answer-btn{
-      background-color:#f8f0e5;color:#333;border:2px solid #eabdc8;
-      border-radius:10px;padding:1rem;cursor:pointer;text-align:left;
-      transition:all 0.3s;
+
+    .screen {
+      display: none;
+      padding: 2rem;
+      text-align: center;
     }
-    .answer-btn:hover{background-color:#eabdc8;border-color:#dac0ae;}
-    .answer-btn.correct{background-color:#e6fff0;border-color:#a3f0c4;color:#28a745;}
-    .answer-btn.incorrect{background-color:#fff0f0;border-color:#ffbdbd;color:#dc3545;}
-    .progress-bar{height:10px;background-color:#f8f0e5;border-radius:5px;overflow:hidden;margin-top:20px;}
-    .progress{height:100%;background-color:#e86a33;width:0%;transition:width 0.3s;}
-    #result-screen h1{color:#e86a33;margin-bottom:30px;}
-    .result-info{background-color:#f8f0e5;border-radius:10px;padding:20px;margin-bottom:30px;}
-    .result-info p{font-size:1.2rem;color:#333;margin-bottom:1rem;}
-    .result-message{font-size:1.5rem;font-weight:600;color:#e86a33;}
-    @media(max-width:500px){
-      .screen{padding:1rem;}
-      #start-screen h1{font-size:2rem;}
-      #question-text{font-size:1.3rem;}
-      .answer-btn{padding:12px;}
-      button{padding:12px 25px;font-size:1rem;}
+
+    .screen.active {
+      display: block;
+    }
+
+    #start-screen h1 {
+      color: #e86a33;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    #start-screen p {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    button {
+      background-color: #e86a33;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #d45b28;
+    }
+
+    .quiz-header {
+      margin-bottom: 1rem;
+    }
+
+    #question-text {
+      color: #333;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-info {
+      display: flex;
+      justify-content: space-between;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .answers-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .answer-btn {
+      background-color: #f8f0e5;
+      color: #333;
+      border: 2px solid #eabdc8;
+      border-radius: 10px;
+      padding: 1rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .answer-btn:hover {
+      background-color: #eabdc8;
+      border-color: #dac0ae;
+    }
+
+    .answer-btn.correct {
+      background-color: #e6fff0;
+      border-color: #a3f0c4;
+      color: #28a745;
+    }
+
+    .answer-btn.incorrect {
+      background-color: #fff0f0;
+      border-color: #ffbdbd;
+      color: #dc3545;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background-color: #f8f0e5;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #e86a33;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    #result-screen h1 {
+      color: #e86a33;
+      margin-bottom: 30px;
+    }
+
+    .result-info {
+      background-color: #f8f0e5;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .result-info p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .result-message {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #e86a33;
+    }
+
+    @media (max-width: 500px) {
+      .screen {
+        padding: 1rem;
+      }
+      #start-screen h1 {
+        font-size: 2rem;
+      }
+      #question-text {
+        font-size: 1.3rem;
+      }
+      .answer-btn {
+        padding: 12px;
+      }
+      button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -95,20 +212,9 @@
     </div>
   </div>
 
-  <!-- axios CDN -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    // ====== Axios 全局设置 ======
-    const API_BASE = 'http://localhost:8080';
-    axios.defaults.baseURL = API_BASE;
-    axios.defaults.withCredentials = true; // 跨域携带 Cookie
-    axios.interceptors.request.use((config) => {
-      const token = localStorage.getItem('jwt_token');
-      if (token) config.headers.token = token; // 后端要求的 token 头
-      return config;
-    });
-
-    // ====== DOM Elements ======
+    // DOM Elements
     const startScreen = document.getElementById("start-screen");
     const quizScreen = document.getElementById("quiz-screen");
     const resultScreen = document.getElementById("result-screen");
@@ -124,40 +230,81 @@
     const restartButton = document.getElementById("restart-btn");
     const progressBar = document.getElementById("progress");
 
-    // ====== Quiz State ======
-    let quizQuestions = [];
+    let quizQuestions = []; // 1. 清空静态数据，准备从后端获取
+
+    // QUIZ STATE VARS
     let currentQuestionIndex = 0;
     let score = 0;
     let answersDisabled = false;
 
-    // ====== 取题接口封装 ======
-    async function fetchQuestions() {
-      const res = await axios.get('/getQuestion');
-      if (res.data.code === 1) {
-        quizQuestions = res.data.data || [];
-        totalQuestionsSpan.textContent = quizQuestions.length;
-        maxScoreSpan.textContent = quizQuestions.length;
-        return true;
-      } else {
-        alert(res.data.msg || '获取题目失败');
-        return false;
-      }
-    }
+    // 2. 创建 Axios 实例
+    const api = axios.create({
+      baseURL: "http://localhost:8080", // 你的后端地址
+      // baseURL: "http://localhost", // 你的后端地址
+      withCredentials: true, // 允许跨域请求携带凭证
+    });
 
-    // ====== Quiz 流程 ======
+    // event listeners
+    startButton.addEventListener("click", startQuiz);
+    restartButton.addEventListener("click", restartQuiz);
+
+    // 3. 修改 startQuiz 函数以获取数据
     async function startQuiz() {
-      // 若无题目，先取题
-      if (!quizQuestions.length) {
-        const ok = await fetchQuestions();
-        if (!ok) return;
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          alert("您尚未登录，请先登录！");
+          window.location.href = "login.html"; // 跳转到登录页
+          return;
+        }
+
+        // 显示加载状态（可选）
+        startButton.disabled = true;
+        startButton.textContent = "正在加载题目...";
+
+        const response = await api.get("/getQuestion", {
+          headers: {
+            token: token, // 修改：将 token 直接放在名为 'token' 的请求头中
+          },
+        });
+
+        if (response.data && response.data.code === 1) {
+          quizQuestions = response.data.data;
+          if (quizQuestions.length === 0) {
+            alert("未能获取到题目，请稍后再试。");
+            startButton.disabled = false;
+            startButton.textContent = "Start Quiz";
+            return;
+          }
+
+          // 更新总题数
+          totalQuestionsSpan.textContent = quizQuestions.length;
+          maxScoreSpan.textContent = quizQuestions.length;
+
+          // 重置状态并开始测验
+          currentQuestionIndex = 0;
+          score = 0;
+          scoreSpan.textContent = 0;
+
+          startScreen.classList.remove("active");
+          quizScreen.classList.add("active");
+
+          showQuestion();
+        } else {
+          throw new Error(response.data.msg || "获取题目失败");
+        }
+      } catch (error) {
+        console.error("获取题目时出错:", error);
+        alert("无法加载题目，请检查登录状态或联系管理员。");
+        // 如果是因为token过期等原因导致401/403，可以跳转回登录页
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+            window.location.href = "login.html";
+        }
+      } finally {
+        // 恢复按钮状态
+        startButton.disabled = false;
+        startButton.textContent = "Start Quiz";
       }
-      currentQuestionIndex = 0;
-      score = 0;
-      scoreSpan.textContent = 0;
-      startScreen.classList.remove("active");
-      resultScreen.classList.remove("active");
-      quizScreen.classList.add("active");
-      showQuestion();
     }
 
     function showQuestion() {
@@ -171,7 +318,7 @@
       questionText.textContent = currentQuestion.question;
       answersContainer.innerHTML = "";
 
-      (currentQuestion.answers || []).forEach((answer) => {
+      currentQuestion.answers.forEach((answer) => {
         const button = document.createElement("button");
         button.textContent = answer.text;
         button.classList.add("answer-btn");
@@ -208,7 +355,7 @@
         } else {
           showResults();
         }
-      }, 800);
+      }, 1000);
     }
 
     function showResults() {
@@ -216,6 +363,7 @@
       resultScreen.classList.add("active");
 
       finalScoreSpan.textContent = score;
+
       const percentage = (score / quizQuestions.length) * 100;
 
       if (percentage === 100) {
@@ -233,16 +381,7 @@
 
     function restartQuiz() {
       resultScreen.classList.remove("active");
-      startQuiz();
-    }
-
-    // ====== 事件绑定 ======
-    startButton.addEventListener("click", startQuiz);
-    restartButton.addEventListener("click", restartQuiz);
-
-    // 若未登录，跳转登录
-    if (!localStorage.getItem('jwt_token')) {
-      window.location.href = 'login.html';
+      startScreen.classList.add("active"); // 修改为返回开始屏幕，而不是直接开始
     }
   </script>
 </body>
