@@ -156,7 +156,7 @@ mysql -u test -p quiz < quiz.sql
   # 后台启动（推荐），日志输出到 quiz.log，避免关闭终端后后端退出
   # quiz-0.0.1-SNAPSHOT.jar是你maven生成的Java源码，我实际是quiz-0.0.1-SNAPSHOT-v2.jar
   # nohup java -jar quiz-0.0.1-SNAPSHOT.jar > quiz.log 2>&1 &
-  nohup java -jar quiz-0.0.1-SNAPSHOT.jar > quiz.log 2>&1 &
+  nohup java -jar quiz-0.0.1-SNAPSHOT-v2.jar > quiz.log 2>&1 &
   ```
 
   ### 1.2 确认后端是否在 8080 端口监听
