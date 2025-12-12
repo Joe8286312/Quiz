@@ -44,8 +44,13 @@ public interface UserMapper {
     @Select("SELECT COUNT(*) FROM user WHERE username LIKE CONCAT('%', #{keyword}, '%') AND isDelete=0")
     public int countByKeyword(String keyword);
 
-    @Select("select * from user where userName=#{username} AND userPassword=#{password}")
+//    @Select("select * from user where userName=#{username} AND userPassword=#{password}")
+//    public User getByNameAndPassword(String username, String password);
+
+    // java
+    @Select("select * from user where userName=#{username} AND userPassword=#{password} AND isDelete = 0")
     public User getByNameAndPassword(String username, String password);
+
 
     // 新增：根据id更新用户信息
 //    @Update("UPDATE user SET " +

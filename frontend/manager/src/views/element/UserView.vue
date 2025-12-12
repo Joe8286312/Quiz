@@ -280,7 +280,7 @@ export default {
       formRules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 3, max: 20, message: '用户名长度在 3 到 20 个字符', trigger: 'blur' }
+          // { min: 3, max: 20, message: '用户名长度在 3 到 20 个字符', trigger: 'blur' }
         ],
         password: [
           { required: true, validator: validatePassword, trigger: 'blur' }
@@ -296,7 +296,7 @@ export default {
       editFormRules: {
         userName: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 3, max: 20, message: '用户名长度在 3 到 20 个字符', trigger: 'blur' }
+          // { min: 3, max: 20, message: '用户名长度在 3 到 20 个字符', trigger: 'blur' }
         ],
         newPassword: [
           { validator: validateNewPassword, trigger: 'blur' }
@@ -455,55 +455,20 @@ export default {
         }
         
         this.adding = true;
-        // // 🔴 修改：使用form-data格式发送数据
-        // const formData = new FormData();
-        // formData.append('username', this.form.username);
-        // formData.append('password', this.form.password);
-        // formData.append('checkpassword', this.form.checkpassword);
-        
-        // axios
-        //   .post('/register', formData, {
-        //     headers: {
-        //       'Content-Type': 'multipart/form-data'
-        //     }
-        //   })
-        //   .then((response) => {
-        //     if (response.data.code === 200) {
-        //       this.$message({
-        //         message: response.data.msg || "添加用户成功",
-        //         type: "success",
-        //         duration: 2000
-        //       });
-              
-        //       this.dialogFormVisible = false;
-        //       this.searchMode = false;
-        //       this.currentKeyword = '';
-        //       this.currentPage = 1;
-        //       this.loadData();
-        //     } else {
-        //       this.$message.error(response.data.msg || "添加用户失败");
-        //     }
-        //     this.adding = false;
-        //   })
-        //   .catch((error) => {
-        //     console.error("Error adding user:", error);
-        //     this.$message.error("添加用户失败，请稍后重试");
-        //     this.adding = false;
-        //   });
-        // 修改：改为调用 /adduser，JSON 传递 userRole
+        // 修正：确保所有字段都与后端 Controller 的 Map<String, String> 匹配
         axios.post('/adduser', {
           username: this.form.username,
           password: this.form.password,
           checkpassword: this.form.checkpassword,
-          userRole: this.form.userRole
+          userRole: String(this.form.userRole) // 修正：将数字转换为字符串发送
         }).then((response) => {
-          if (response.data.code === 1) { // 修改：成功码 1
+          if (response.data.code === 1) { // 确认：成功码为 1
             this.$message({ message: response.data.msg || "添加用户成功", type: "success", duration: 2000 });
-            this.dialogFormVisible = false;
+            this.dialogFormVisible = false; // 成功后关闭对话框
             this.searchMode = false;
             this.currentKeyword = '';
             this.currentPage = 1;
-            this.loadData();
+            this.loadData(); // 成功后刷新数据
           } else {
             this.$message.error(response.data.msg || "添加用户失败");
           }
@@ -527,7 +492,7 @@ export default {
         const submitData = {
           id: this.editForm.id,
           userName: this.editForm.userName,
-          userRole: this.editForm.userRole
+          userRole: this.editForm.userRole // 修正：确保 userRole 字段被包含
         };
         
         // 只有在修改密码开关打开且新密码不为空时才传递密码
@@ -539,15 +504,16 @@ export default {
         axios
           .post("/updateUser", submitData)
           .then((response) => {
-            if (response.data.code === 200) {
+            // 修正：将成功码判断从 200 改为 1
+            if (response.data.code === 1) {
               this.$message({
                 message: response.data.msg || "用户信息更新成功",
                 type: "success",
                 duration: 2000
               });
               
-              this.editDialogFormVisible = false;
-              this.loadData();
+              this.editDialogFormVisible = false; // 成功后关闭对话框
+              this.loadData(); // 成功后刷新数据
             } else {
               this.$message.error(response.data.msg || "更新用户失败");
             }
@@ -587,12 +553,13 @@ export default {
           axios
             .get(`/deleteById?id=${id}`)
             .then((response) => {
-              if (response.data.code === 200) {
+              // 修正：将成功码判断从 200 改为 1
+              if (response.data.code === 1) {
                 this.$message({
                   message: response.data.msg || "删除用户成功",
                   type: "success"
                 });
-                this.loadData();
+                this.loadData(); // 成功后刷新数据
               } else {
                 this.$message.error(response.data.msg || "删除用户失败");
               }

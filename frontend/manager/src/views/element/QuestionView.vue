@@ -528,21 +528,22 @@ export default {
           .post("/addQuestion", this.form)
           .then((response) => {
             console.log("Question added successfully:", response.data);
-            this.dialogFormVisible = false;
-            // 新增：显示成功消息
-            if (response.data.code === 200) {
+            
+            // 修改：将成功码判断从 200 改为 1
+            if (response.data.code === 1) {
               this.$message({
                 message: response.data.msg || "添加问题成功",
                 type: "success",
                 duration: 2000
               });
+              this.dialogFormVisible = false; // 成功后关闭对话框
+              // 重置搜索状态，回到第一页
+              this.searchMode = false;
+              this.currentPage = 1;
+              this.loadData(); // 重新加载数据
             } else {
               this.$message.error(response.data.msg || "添加失败");
             }
-            // 重置搜索状态，回到第一页
-            this.searchMode = false;
-            this.currentPage = 1;
-            this.loadData();
             this.adding = false;  // 隐藏加载状态
           })
           .catch((error) => {
@@ -567,17 +568,17 @@ export default {
             .get(`/delQuestion?id=${id}`) // 使用 GET 请求传递 id 参数
             .then((response) => {
               console.log(response.data);
-              // 新增：显示成功消息
-              if (response.data.code === 200) {
+              // 修改：将成功码判断从 200 改为 1
+              if (response.data.code === 1) {
                 this.$message({
                   message: response.data.msg || "删除成功",
                   type: "success"
                 });
+                // 删除成功后刷新当前页数据
+                this.loadData();
               } else {
                 this.$message.error(response.data.msg || "删除失败");
               }
-              // 删除成功后刷新当前页数据
-              this.loadData();
             })
             .catch((error) => {
               console.error("Error deleting question:", error);
@@ -716,7 +717,8 @@ export default {
             console.log("编辑题目成功:", response.data);
             this.editing = false;
             
-            if (response.data.code === 200) {
+            // 修改：将成功码判断从 200 改为 1
+            if (response.data.code === 1) {
               this.$message({
                 message: response.data.msg || "编辑问题成功",
                 type: "success",
