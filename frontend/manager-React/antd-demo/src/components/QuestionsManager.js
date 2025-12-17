@@ -10,7 +10,9 @@ const makeMockQuestions = () => {
   const list = [];
   for (let i = 1; i <= 17; i++) {
     const b = base[i % base.length];
-    list.push({ id: i, question: `${b.question} #${i}`, options: [...b.options], answer: b.answer });
+    // list.push({ id: i, question: `${b.question} #${i}`, options: [...b.options], answer: b.answer });
+    // 移除 “#${i}” 即可去掉每条题目后的序号标记
+    list.push({ id: i, question: b.question, options: [...b.options], answer: b.answer });
   }
   return list;
 };
